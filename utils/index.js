@@ -10,7 +10,7 @@ module.exports = {
       }
 
       if (stdout) {
-        console.log(`stdout: ${stdout}`);
+        console.log(`${stdout}`);
       }
 
       if (stderr) {
