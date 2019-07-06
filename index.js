@@ -1,8 +1,8 @@
 const extend = require('./utils/extend');
 
-let Br = function Br(dbType = 'mysql') {
-  if (!(this instanceof Br)) {
-    return new Br(arguments);
+let BackupRestore = function BackupRestore(dbType = 'mysql') {
+  if (!(this instanceof BackupRestore)) {
+    return new BackupRestore(dbType);
   }
   this.dbType = dbType;
 
@@ -13,12 +13,13 @@ let Br = function Br(dbType = 'mysql') {
   return this;
 };
 
-Br.prototype.dbs = {
-  mysql: require('./lib/mysql'),
-  rethink: require('./lib/rethink'),
+BackupRestore.prototype.dbs = {
+  mysql: require('./lib/mysql.js'),
+  rethink: require('./lib/rethink.js'),
+  mongo: require('./lib/mongo.js')
 };
 
-Br.prototype.backup = function backup(options = {}) {
+BackupRestore.prototype.backup = function backup(options = {}) {
   let fns = this.dbs[this.dbType];
 
   if (!fns.backup) {
@@ -28,7 +29,7 @@ Br.prototype.backup = function backup(options = {}) {
   return fns.backup(options);
 };
 
-Br.prototype.restore = function restore(options = {}) {
+BackupRestore.prototype.restore = function restore(options = {}) {
   let fns = this.dbs[this.dbType];
 
   if (!fns.restore) {
@@ -38,4 +39,4 @@ Br.prototype.restore = function restore(options = {}) {
   return fns.restore(options);
 };
 
-module.exports = Br;
+module.exports = BackupRestore;

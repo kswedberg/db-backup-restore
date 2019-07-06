@@ -3,6 +3,12 @@ const pad = (item) => {
 };
 
 module.exports = {
+  log: (...args) => {
+    if (process.env.NODE_ENV === 'test') {
+      console.log(...args);
+    }
+  },
+
   handleData: (resolve, reject) => {
     return (err, stdout, stderr) => {
       if (err) {
