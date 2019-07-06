@@ -1,19 +1,25 @@
 const chalk = require('chalk');
+const dotenv = require('dotenv');
 const DBBackupRestore = require('../index.js');
 const mysql = new DBBackupRestore('mysql');
 
+dotenv.config();
+
 const defaults = {
-  password: 'root',
+  password: process.env.MYSQL_PWD,
   gzip: true,
   env: 'test',
   args: [
     '-S /Applications/MAMP/tmp/mysql/mysql.sock'
-  ]
+  ],
+  db: process.env.MYSQL_TEST_DB
 };
 
 module.exports = {
   backup: () => {
-    const options = Object.assign({}, defaults, {db: 'spt_local'});
+    const options = Object.assign({}, defaults, {
+      file: `${defaults.db}_tmp.sql`,
+    });
 
     return mysql.backup(options)
     .then(() => {
@@ -25,9 +31,9 @@ module.exports = {
   },
   restore: () => {
     const options = Object.assign({}, defaults, {
-      db: 'spt_test',
+      db: `${defaults.db}_tmp`,
+      file: `${defaults.db}_tmp.sql.gz`,
       dir: process.cwd(),
-      file: 'spt_local_2019-06-29.sql.gz'
     });
 
     return mysql.restore(options);
