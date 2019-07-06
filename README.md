@@ -5,12 +5,14 @@ Database backup (dump) and restore (import) for MySQL and RethinkDB
 ## Install
 
 With `npm`:
+
 ```bash
 # Append --save or --save-dev to the following line to add to package.json dependencies or devDependencies
 npm install db-backup-restore
 ```
 
 With `yarn`:
+
 ```bash
 # Automatically adds to package.json dependencies. Append --dev to add to devDependencies instead
 yarn add db-backup-restore
@@ -41,7 +43,9 @@ mysqlDb.backup({
 ```js
 const DB = require('db-backup-restore');
 const mysqlDb = new DB('mysql');
+
 ```
+
 ### `.backup(settings)`
 
 Available settings, with their defaults:
@@ -64,8 +68,6 @@ Available settings, with their defaults:
 Notes:
 
 * The complete file path will be determined by joining `settings.dir` and `settings.file`
-*
-
 
 ### `.restore(settings)`
 
