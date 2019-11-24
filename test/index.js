@@ -1,12 +1,12 @@
 const Promises = require('bluebird');
-const allDbs = ['mysql', 'rethink'];
+const allDbs = ['mysql', 'rethink', 'mongo'];
 const allTests = ['backup', 'restore'];
 
 const argv = require('yargs')
 .option('db', {
   alias: 'd',
-  describe: 'choose a database',
-  choices: allDbs
+  describe: 'choose a database server',
+  choices: allDbs,
 })
 .options('test', {
   alias: 't',
