@@ -16,7 +16,7 @@ let BackupRestore = function BackupRestore(dbType = 'mysql') {
 BackupRestore.prototype.dbs = {
   mysql: require('./lib/mysql.js'),
   rethink: require('./lib/rethink.js'),
-  mongo: require('./lib/mongo.js')
+  mongo: require('./lib/mongo.js'),
 };
 
 BackupRestore.prototype.backup = function backup(options = {}) {

@@ -10,9 +10,9 @@ const defaults = {
   gzip: true,
   env: 'test',
   args: [
-    '-S /Applications/MAMP/tmp/mysql/mysql.sock'
+    '-S /Applications/MAMP/tmp/mysql/mysql.sock',
   ],
-  db: process.env.MYSQL_TEST_DB
+  db: process.env.MYSQL_TEST_DB,
 };
 
 module.exports = {
@@ -37,5 +37,5 @@ module.exports = {
     });
 
     return mysql.restore(options);
-  }
+  },
 };
