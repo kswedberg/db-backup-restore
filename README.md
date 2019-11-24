@@ -71,13 +71,14 @@ Notes:
 
 ### `.restore(settings)`
 
+
 ## RethinkDB API
 
 ### Constructor
 
 ```js
 const DB = require('db-backup-restore');
-const mysqlDb = new DB('mysql');
+const mysqlDb = new DB('rethink');
 ```
 
 ### `.backup(settings)`
