@@ -12,6 +12,9 @@ const dbEnvSettings = {
   mongo: {
     authSource: 'DB_AUTHSOURCE',
   },
+  mysql: {
+    socketPath: 'DB_SOCKET',
+  },
 };
 
 module.exports.getEnvSettings = (dbServer, showFalse) => {

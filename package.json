@@ -21,6 +21,8 @@
     "globby": "^10.0.1",
     "inquirer": "^7.0.0",
     "mongodb": "^3.3.4",
+    "mysql": "^2.17.1",
+    "mysql-utilities": "^1.1.0-alpha.3",
     "rethinkdb": "^2.3.3",
     "tunnel-ssh": "^4.1.4",
     "update-notifier": "^3.0.1",
