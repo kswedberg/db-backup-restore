@@ -1,4 +1,7 @@
+const dotenv = require('dotenv');
 const extend = require('./utils/extend');
+
+dotenv.config();
 
 let BackupRestore = function BackupRestore(dbType = 'mysql') {
   if (!(this instanceof BackupRestore)) {
@@ -29,6 +32,15 @@ BackupRestore.prototype.backup = function backup(options = {}) {
   return fns.backup(options);
 };
 
+BackupRestore.prototype.listDatabases = function(options = {}) {
+  let fns = this.dbs[this.dbType];
+
+  if (!fns.listDatabases) {
+    throw new Error(`No listDatabases method defined for ${this.dbType}`);
+  }
+
+  return fns.listDatabases(options);
+};
 BackupRestore.prototype.restore = function restore(options = {}) {
   let fns = this.dbs[this.dbType];
 

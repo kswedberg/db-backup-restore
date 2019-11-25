@@ -1,9 +1,6 @@
 const chalk = require('chalk');
-const dotenv = require('dotenv');
 const DBBackupRestore = require('../index.js');
 const mysql = new DBBackupRestore('mysql');
-
-dotenv.config();
 
 const defaults = {
   password: process.env.MYSQL_PWD,

@@ -1,8 +1,5 @@
 const DBBackupRestore = require('../index.js');
 const mongo = new DBBackupRestore('mongo');
-const dotenv = require('dotenv');
-
-dotenv.config();
 
 const defaults = {
   env: 'test',
@@ -11,12 +8,17 @@ const defaults = {
   password: process.env.MONGO_PWD,
   authSource: process.env.MONGO_AUTHSOURCE,
   gzip: true,
-  archive: true,
 };
 
 defaults.file = `backup/${defaults.db}-test`;
 
 module.exports = {
+  listDbs: async() => {
+    const settings = Object.assign(defaults);
+    const dbs = await mongo.listDatabases(settings);
+
+    console.log(dbs);
+  },
   backup: () => {
     const settings = Object.assign(defaults);
 

@@ -14,7 +14,7 @@ const dbEnvSettings = {
   },
 };
 
-module.exports.getEnvSettings = (dbServer) => {
+module.exports.getEnvSettings = (dbServer, showFalse) => {
   const envs = Object.assign(envSettings, dbEnvSettings[dbServer] || {});
 
   return Object.keys(envs)
@@ -22,7 +22,10 @@ module.exports.getEnvSettings = (dbServer) => {
     const envKey = envs[curr];
     const value = process.env[envKey] || false;
 
-    settings[curr] = value;
+    if (value || showFalse) {
+      settings[curr] = value;
+    }
+
 
     return settings;
   }, {});

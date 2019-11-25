@@ -1,8 +1,5 @@
 const DBBackupRestore = require('../index.js');
 const rethink = new DBBackupRestore('rethink');
-const dotenv = require('dotenv');
-
-dotenv.config();
 
 const defaults = {
   env: 'test',
@@ -20,5 +17,5 @@ module.exports = {
     const settings = Object.assign({}, defaults, {db: `${defaults.db}-test`});
 
     return rethink.restore(settings);
-  }
+  },
 };
