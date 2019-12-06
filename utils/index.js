@@ -48,7 +48,7 @@ module.exports = {
     return [
       date.getFullYear(),
       date.getMonth() + 1,
-      date.getDate()
+      date.getDate(),
     ]
     .map(pad)
     .join(glue);
@@ -60,9 +60,9 @@ module.exports = {
     return [
       date.getHours(),
       date.getMinutes(),
-      date.getSeconds()
+      date.getSeconds(),
     ]
     .map(pad)
     .join(glue);
-  }
+  },
 };
