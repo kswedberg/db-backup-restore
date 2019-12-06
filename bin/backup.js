@@ -28,14 +28,18 @@ const backup = async() => {
   const settings = {};
 
   Object.keys(envSettings).forEach((key) => {
+    const type = key === 'password' ? 'password' : 'input';
+
     if (envSettings[key] === false) {
       questions.push({
         name: key,
+        type,
         message: `Enter the ${key}`,
       });
     } else if (args.includes('-V') || args.includes('--verbose')) {
       questions.push({
         name: key,
+        type,
         message: `Enter the ${key}`,
         default: envSettings[key],
       });
