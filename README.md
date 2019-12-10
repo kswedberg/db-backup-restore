@@ -2,6 +2,8 @@
 
 Database backup (dump) and restore (import) for MySQL and RethinkDB
 
+**Important**: This is a work in progress. Not ready for prime time. The API is still a mess. Use at your own risk.
+
 ## Install
 
 With `npm`:
