@@ -7,7 +7,7 @@ const inquirer = require('inquirer');
 const DBBackupRestore = require('../index.js');
 const {getEnvSettings} = require('../utils/env.js');
 const args = process.argv.slice(2);
-
+const {dbServers} = require('../utils/index.js');
 const questions = [];
 const backup = async() => {
   const {dbServer} = await inquirer.prompt([
@@ -15,11 +15,7 @@ const backup = async() => {
       name: 'dbServer',
       message: 'which db server?',
       type: 'list',
-      choices: [
-        'mongo',
-        'mysql',
-        'rethink',
-      ],
+      choices: dbServers,
     },
   ]);
 
@@ -53,7 +49,7 @@ const backup = async() => {
     default: process.cwd(),
   });
 
-  if (args) {
+  if (args && args.length) {
     settings.args = args;
   }
 

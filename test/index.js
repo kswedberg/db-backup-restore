@@ -1,5 +1,6 @@
 const Promises = require('bluebird');
-const allDbs = ['mysql', 'rethink', 'mongo'];
+const {dbServers} = require('../utils/index.js');
+const allDbs = dbServers;
 const allTests = ['backup', 'restore'];
 
 const argv = require('yargs')

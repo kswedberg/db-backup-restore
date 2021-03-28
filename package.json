@@ -8,30 +8,31 @@
   },
   "bin": {
     "db-backup": "bin/backup.js",
-    "db-restore": "bin/restore.js"
+    "db-restore": "bin/restore.js",
+    "db-restore-all": "bin/restore-all.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.5.1",
-    "chalk": "^2.3.0",
-    "decompress": "^4.2.1",
+    "chalk": "^4.1.0",
+    "decompress": "^4.2.0",
     "decompress-targz": "^4.1.1",
+    "dotenv": "^8.1.0",
     "fs-extra": "^8.1.0",
     "globby": "^10.0.1",
-    "inquirer": "^7.0.0",
-    "mongodb": "^3.3.4",
+    "inquirer": "^7.3.3",
+    "mongodb": "^3.6.1",
     "mysql": "^2.17.1",
     "mysql-utilities": "^1.1.0-alpha.3",
     "rethinkdb": "^2.3.3",
     "tunnel-ssh": "^4.1.4",
-    "update-notifier": "^3.0.1",
+    "update-notifier": "^4.1.1",
     "yargs": "^14.0.0"
   },
   "devDependencies": {
-    "dotenv": "^8.1.0",
-    "eslint": "^6.3.0",
-    "eslint-config-kswedberg": "^3.1.1"
+    "eslint": "^7.1.0",
+    "eslint-config-kswedberg": "^4.1.1"
   },
   "keywords": [
     "mysql",

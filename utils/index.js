@@ -3,6 +3,11 @@ const pad = (item) => {
 };
 
 module.exports = {
+  dbServers: [
+    'mongo',
+    'mysql',
+    'rethink',
+  ],
   log: (...args) => {
     if (process.env.NODE_ENV === 'test') {
       console.log(...args);
